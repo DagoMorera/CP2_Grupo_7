@@ -60,8 +60,12 @@ public class RoomsBusiness(
 
     public async Task<bool> SolutionRoom3Async(string code)
     {
-        await Task.CompletedTask;
-        return Evaluate(3, code);
+        var hash = new SecureHashService(
+            "E4A1F9B7C32D8F64A9F1C0D3B7E2A6CC4F18B92ED0C4A7F1D3B89C6A5F2E1D44");
+
+        return hash.Validate(
+            code,
+            "s0+cAcAI8p+zqhoIZtVjRr+HSLnTHp6NVa5YmTw1Ie4=");
     }
 
     // Room 4: el input "code" ya llega como JSON armado por el JS de la vista.
